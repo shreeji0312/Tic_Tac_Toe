@@ -1,8 +1,20 @@
+/**
+ * @file Tic_Tac_Toe.c
+ * @author [shreeji0312] (https://github.com/shreeji0312)
+ * @brief [Tic-Tac-Toe game](https://en.wikipedia.org/wiki/Tic-tac-toe)
+ * implementation in C
+ * @details User can play with other human player 
+ * or also can play with computer.
+ * computer can also predict the next best step.
+ */
+
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
 
 
+// used to intialize the board with null values set to the each box
 void InitializeBoard(int m, int n , char board[][n]){
     int c =1;
     for(int i =0; i<m; i++){
@@ -13,6 +25,7 @@ void InitializeBoard(int m, int n , char board[][n]){
     }
 }
 
+// used to print the board with each current values
 void PrintBoard(int m, int n, char board[][n]){
     for (int i = 0; i < m; i++){
         printf("   |   |   \n");
@@ -28,6 +41,7 @@ void PrintBoard(int m, int n, char board[][n]){
     }
 }
 
+// to creat the new board each time when called
 void Creatboard(int m, int n, char board[][n]){
     int cor;
     char xo;
@@ -58,7 +72,8 @@ void Creatboard(int m, int n, char board[][n]){
     }while(1);
 }
 
-
+// to check if tic tac toe board has valid value or not.
+// can be called anytime
 int IsValidBoard(int m, int n, char board[][n]){
     int xcount = 0, ocount = 0;
     for(int i =0; i<m; i++){
@@ -77,6 +92,7 @@ int IsValidBoard(int m, int n, char board[][n]){
                 return 0;
 }
 
+//to predict the winning cell
 void ListWinningCells(int m, int n, char board[][n]){
         int RowX[3]={0}, ColoumnX[3]={0}, RowO[3]={0}, ColoumnO[3]={0};
         int diagonalX=0, diagonalX1=0, diagonalO=0, diagonalO1=0;
@@ -184,7 +200,7 @@ void ListWinningCells(int m, int n, char board[][n]){
         printf("\n");
     }
 
-
+// MAIN CLASS
 int main(){
     int m=3,n=3;
     char option;
